@@ -58,7 +58,9 @@ public class HelloWorldServlet extends HttpServlet {
         writer.println("<h1>" + helloService.createHelloMessage("World") + "</h1>");
         writer.println("<hr/>");
         writer.println("<p/>Server: " + req.getLocalAddr());
-        writer.println("<p/>Timestamp: " + (new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").setTimeZone(TimeZone.getTimeZone("GMT")).format(java.util.Calendar.getInstance().getTime()));
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
+        writer.println("<p/>Timestamp: " + sdf.format(java.util.Calendar.getInstance().getTime()));
         writer.println(PAGE_FOOTER);
         writer.close();
     }
